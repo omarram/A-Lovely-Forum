@@ -1,0 +1,5 @@
+<h1>Edit your Comment</h1>
+<%= simple_form_for([@post, @comment]) do |f| %>
+	<%= f.input(:commentary, :label => 'Fix Your Comment') %>
+	<%= f.submit %>	
+<% end %>
