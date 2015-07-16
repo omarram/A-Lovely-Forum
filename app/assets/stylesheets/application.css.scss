@@ -14,6 +14,23 @@
  *= require_self
  */
 
+#notice_wrapper{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 999;
+	background: rgba(153, 167, 168, 0.85);
+	p{
+		padding: 2.5rem 0;
+		text-align: center;
+		margin: 0;
+		font-size: 1.25rem;
+		font-weight: 700;
+		color: #FFFFFF;
+		letter-spacing: 1px;
+	}
+}
+
  body {
  	font-family: 'Ubuntu', sans-serif;
  	background: url("wood.jpg");
@@ -87,10 +104,19 @@
 	}
 }
 
+.button {
+	border: 1px solid #D9D9D9;
+	color: #566666;
+	border-radius: .2em;
+	padding: .5em 1em;
+	margin-right: 2%;
+	text-decoration: none;
+}
+
 #post_content {
-	background: white;
 	padding: 1em 5%;
 	border-radius: .3em;	
+	background: white;
 	h1 {
 		font-weight: 100;
 		font-size: 2em;
@@ -102,4 +128,61 @@
 		font-size: 0.9rem;
 		line-height: 1.5;
 	}
+}
+
+#comments {
+	.comment {
+		border-bottom: 1px solid #D9D9D9;
+		padding-bottom: 1em;
+		margin-bottom: 1em;
+		.content {
+			width: 55%;
+			float: left;
+		}
+		.comment_buttons{
+			width: 45%;
+			float: left;
+			font-size: .8em;
+			text-align: right;
+			a {
+				color: #566666;
+				border: 1px solid #D9D9D9;
+				padding: .5em 1em;
+				border-radius: .2em;
+				text-decoration: none;
+				margin-right: 2%;
+			}
+		}
+		.comment_content {
+			margin: 0;
+			padding: 0;
+		}
+		.comment_author {
+			color: #7b9191;
+			margin-top: .5rem;
+			font-size: .6em;
+			font-weight: 700;
+		}
+	}
+	input[type="submit"] {
+		background: #566666;
+		border: none;
+		color: white;
+		font-weight: 100;
+		padding: .5em 1em;
+		border-radius: .2em;
+	}
+	textarea {
+		width: 100%;
+		min-height: 200px;
+		border: 1px solid #D9D9D9;
+		border-radius: .2em;
+		margin: 1em 0;
+	}
+}
+
+.horcol {
+	display: block; height: 1px;
+    border: 0; border-top: 1px solid #ccc;
+    margin: 1em 0; padding: 0;
 }
