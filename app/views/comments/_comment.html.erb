@@ -4,7 +4,9 @@
 		<p class="comment_author"><%= comment.user.email %></p>		
 	</div>
 	<div class="comment_buttons">
-		<%= link_to("Edit", edit_post_comment_path(comment.post, comment)) %>	
-		<%= link_to("Delete", [comment.post, comment], :method => :delete, :data => { :confirm => "Are you sure?" }) %>		
+		<% if @post.user == current_user || comment.user == current_user %>
+			<%= link_to("Edit", edit_post_comment_path(comment.post, comment)) %>	
+			<%= link_to("Delete", [comment.post, comment], :method => :delete, :data => { :confirm => "Are you sure?" }) %>	
+		<% end %>
 	</div>
 </div>
