@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	  <title>Forum</title>
-	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-	  <link href: 'http://fonts.googleapis.com/css?family=Ubuntu:300,400,500' rel: 'stylesheet' type: 'text/css'>
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	  <%= csrf_meta_tags %>
-	</head>
+  <head>
+    <title>Forum</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link href: 'http://fonts.googleapis.com/css?family=Ubuntu:300,400,500' rel: 'stylesheet' type: 'text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-	<body>	
-		<header class="main_header clearfix">
-			<div class="wrapper">
-				<div id="logo">
-					<p><%= link_to("Omar's Forum", root_path) %></p>
-				</div>
-				<div id="buttons">
-					<% if user_signed_in? %>
-						<%= link_to("New Post", new_post_path) %>
-						<%= link_to("Sign Out", destroy_user_session_path, method: :delete )%>
-					<% else %>
-						<%= link_to("Sign Up", new_user_registration_path) %>
-						<%= link_to("Sign In", new_user_session_path) %>
-					<% end %>
-				</div>
-			</div>
-		</header>
+  <body>  
+    <header class="main_header clearfix">
+      <div class="wrapper">
+        <div id="logo">
+          <p><%= link_to("Omar's Forum", root_path) %></p>
+        </div>
+        <div id="buttons">
+          <% if user_signed_in? %>
+            <%= link_to("New Post", new_post_path) %>
+            <%= link_to("Sign Out", destroy_user_session_path, method: :delete )%>
+          <% else %>
+            <%= link_to("Sign Up", new_user_registration_path) %>
+            <%= link_to("Sign In", new_user_session_path) %>
+          <% end %>
+        </div>
+      </div>
+    </header>
 
-		<div class="wrapper">
-			<% if user_signed_in? %>
-				<div class="currentuser">Signed in as <%= current_user.email %></div>
-			<% end %>
-		</div>
+    <div class="wrapper">
+      <% if user_signed_in? %>
+        <div class="currentuser">Signed in as <%= current_user.email %></div>
+      <% end %>
+    </div>
 
-		<% if notice %>
-			<div id="notice_wrapper">
-	    	<p class="notice"><%= notice %></p>
-	    </div>
-	  <% elsif alert %>
-	    <div id="notice_wrapper">
-		  	<p class="alert"><%= alert %></p>  		
-	    </div>	
-	  <% end %> <br>
+    <% if notice %>
+      <div id="notice_wrapper">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% elsif alert %>
+      <div id="notice_wrapper">
+        <p class="alert"><%= alert %></p>     
+      </div>  
+    <% end %> <br>
 
-		<div class="wrapper">
-			<%= yield %>
-		</div>
-	</body>
+    <div class="wrapper">
+      <%= yield %>
+    </div>
+  </body>
 </html>
